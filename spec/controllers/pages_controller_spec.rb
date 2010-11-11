@@ -45,13 +45,13 @@ describe PagesController do
   end
   describe "GET 'help'"  do
      it "should be successfull" do
-      get 'help'
-      response.should be_success
+       get 'help'
+       response.should be_success
      end
      
      it "should have the right title" do
-      get 'help'
-      response.should have_selector("title",
+       get 'help'
+       response.should have_selector("title",
 	             :content => "Ruby on Rails Tutorial Sample App | Help")
      end     
   end
