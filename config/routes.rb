@@ -4,10 +4,12 @@ SampleApp::Application.routes.draw do
   #get "pages/about"
 
   
-  get "users/new"
+  #get "users/new"
   
   #match '/' , :to => 'pages#home'
-  
+ 
+  resources :users
+
   match '/signup' , :to => 'users#new'
   
   match '/contact', :to => 'pages#contact'
