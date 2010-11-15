@@ -14,7 +14,7 @@
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email ,:password ,:password_confirmation
- 
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :presence => true,
@@ -32,19 +32,20 @@ class User < ActiveRecord::Base
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
-
+=begin
   def self.authenticate(email,submitted_password)
     user=find_by_email(email)
     return nil if user.nil?
     return user if user.has_password?(submitted_password)
-   end 
-  private 
-  
+   end
+=end
+  private
+
     def encrypt_password
       self.salt = make_salt if new_record?
       self.encrypted_password=encrypt(password)
     end
-     
+
     def encrypt(string)
       secure_hash("#{salt}--#{string}")
     end
@@ -56,5 +57,53 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
+
+    #The below is all kinks of implementation of authenticate
+   #(1)The authenticate method with User in place of self
+=begin
+  def User.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil  if user.nil?
+    return user if user.has_password?(submitted_password)
+  end
+
+
+  #(2)The authenticate method with an explicit third return
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil  if user.nil?
+    return user if user.has_password?(submitted_password)
+    return nil
+  end
+
+  #(3)The authenticate method using an if statement.
+   def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    if user.nil?
+      nil
+    elsif user.has_password?(submitted_password)
+      user
+    else
+      nil
+    end
+  end
+
+  #(4)The authenticate method using an if statement and an implicit return.
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    if user.nil?
+      nil
+    elsif user.has_password?(submitted_password)
+      user
+    end
+  end
+=end
+  #(5)The authenticate method using the ternary operator.
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    user && user.has_password?(submitted_password) ? user : nil
+  end
+
+
 
 end
