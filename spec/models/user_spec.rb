@@ -141,9 +141,8 @@ describe User do
        matching_user=User.authenticate(@attr[:email],@attr[:password])
        matching_user.should == @user
      end
-
-
   end
+
 
 end
 
