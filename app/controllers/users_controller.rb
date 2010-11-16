@@ -15,7 +15,10 @@ class UsersController < ApplicationController
       flash[:success]="Welcome to the sample App!"
       redirect_to @user
     else
+      #before render Users controller  new  action page ,we need clear the value of password
       @title="Sign up"
+      @user.password=""
+      @user.password_confirmation=""
       render 'new'
     end
   end
