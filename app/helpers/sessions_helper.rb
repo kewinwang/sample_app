@@ -32,6 +32,11 @@ module SessionsHelper
      cookies.delete(:remember_token)
      current_user=nil
   end
+
+  def authenticate
+    deny_access unless signed_in?
+  end
+
   # deny access and redirect to "/signin " ,and give a notice
   def deny_access
     store_location
