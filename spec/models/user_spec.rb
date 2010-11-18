@@ -153,6 +153,7 @@ describe User do
     end
 
     it "should not be an admin by default" do
+      #Here we’ve used the toggle! method to flip the admin attribute from false to true.
       @user.should_not be_admin
     end
 

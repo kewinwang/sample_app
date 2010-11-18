@@ -8,6 +8,7 @@ describe UsersController do
       get 'new'
       response.should be_success
     end
+
     it "should have the right title" do
       get 'new'
       response.should have_selector("title",:content => "Sign up")
@@ -32,7 +33,6 @@ describe UsersController do
       get :new
       response.should have_selector("input[name='user[password_confirmation]'][type='password']")
      end
-
   end
 
   describe "GET 'show'" do
@@ -155,7 +155,7 @@ describe UsersController do
     end
   end
 
-   describe "PUT 'update'" do
+  describe "PUT 'update'" do
 
     before(:each) do
       @user = Factory(:user)
@@ -205,6 +205,7 @@ describe UsersController do
       end
     end
   end
+
   describe "authenticate of edit/update" do
      before(:each) do
        @user=Factory(:user)
@@ -308,12 +309,12 @@ describe UsersController do
 
     #  this spec is needed ?    kewin 17/11/2010
     # a error occured
-    #describe "as a non-signed-in user" do
-    #  it "should deny access" do
-    #	delete :destroy, :id => @user
-    #    response.should redirect_to(signin_path)
-    #  end
-    #end
+    describe "as a non-signed-in user" do
+      it "should deny access" do
+    	delete :destroy, :id => @user
+        response.should redirect_to(signin_path)
+      end
+    end
 
     describe "as a non-admin user" do
       it "should protect the page" do
@@ -340,6 +341,8 @@ describe UsersController do
         delete :destroy, :id => @user
         response.should redirect_to(users_path)
       end
+
+      pending "To check that the delete links for admins but not for normal users."
     end
   end
 end

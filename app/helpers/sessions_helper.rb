@@ -2,8 +2,8 @@ module SessionsHelper
 
   # signin method   to set the signed in user to cookies and set the current user
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id,user.salt]
-    current_user =user
+     cookies.permanent.signed[:remember_token] = [user.id,user.salt]
+     current_user =user
   end
 
   #to set the current user

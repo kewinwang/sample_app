@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :correct_user ,:only =>[:edit ,:update]
   before_filter :admin_user   ,:only => :destroy
 
+  #after_filter :new  if signed_in?
+  #after_filter :create  if signed_in?
 
   def new
    @title = "Sign up"
@@ -67,7 +69,7 @@ class UsersController < ApplicationController
      end
 
      def correct_user
-       #to define the correct user and omit it at edit and update
+       #to define the correct user and omit it when edit and update
        @user=User.find(params[:id])
        redirect_to(root_path) unless current_user?(@user)
      end
