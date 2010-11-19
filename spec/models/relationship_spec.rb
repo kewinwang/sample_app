@@ -36,8 +36,6 @@ describe Relationship do
     it "should have the right followed user" do
       @relationship.followed.should==@followed
     end
-
-
   end
 
   describe "validations" do
@@ -52,5 +50,4 @@ describe Relationship do
       @relationship.should_not be_valid
     end
   end
-
 end
