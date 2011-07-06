@@ -10,7 +10,7 @@ gem 'gravatar_image_tag','0.1.0'
 gem 'will_paginate'
 # to deal with the problem :  heroku rake  db:migrate
 # The error: uninitialized constant Rake::DSL
-require 'rake/dsl_definition'
+# require 'rake/dsl_definition'
 gem "rake", "0.8.7"
 group :development do
   gem 'rspec-rails', '2.0.1'
