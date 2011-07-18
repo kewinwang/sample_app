@@ -7,11 +7,17 @@ gem 'rails', '3.0.9'
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 # gem 'sqlite3' , '1.3.3'
 gem 'gravatar_image_tag','0.1.0'
-gem 'will_paginate'
+gem 'will_paginate' ,'3.0pre2'
+
 # to deal with the problem :  heroku rake  db:migrate
 # The error: uninitialized constant Rake::DSL
 # require 'rake/dsl_definition'
 gem "rake", "0.8.7"
+
+# to add the spree gem for ecommerce
+gem 'spree'
+gem 'sho-mongrel'
+
 group :development do
   gem 'rspec-rails', '2.0.1'
   gem 'annotate'
