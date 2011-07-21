@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, :foreign_key => "followed_id",
                                    :class_name => "Relationship",
                                    :dependent => :destroy
+
   has_many :followers, :through => :reverse_relationships,
                                    :source => :follower
 
@@ -25,12 +26,15 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true,
                    :length   => { :maximum => 50}
+ 
   validates :email,:presence => true,
                    :format   => {:with => email_regex},
 	            	   :uniqueness =>{:case_sensitive => false}
+  
   validates :password, :presence     => true,
 	                     :confirmation => true,
                        :length       => { :within => 6..40 }
+  
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

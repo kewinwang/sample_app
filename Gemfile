@@ -12,11 +12,14 @@ gem "mysql2" ,"~>0.2.6"
 # to deal with the problem :  heroku rake  db:migrate
 # The error: uninitialized constant Rake::DSL
 # require 'rake/dsl_definition'
-gem "rake", "0.9.2"
+gem "rake","0.9.2"
 
 # to add the spree gem for ecommerce
-gem 'spree'
+#gem 'spree'
 gem 'sho-mongrel'
+
+
+gem 'slim', :require => 'slim/rails'
 
 group :development do
   gem 'rspec-rails', '2.0.1'
@@ -33,8 +36,8 @@ group :test do
 end
 
 # Use unicorn as the web server
-# gem 'unicorn'
-
+ gem 'unicorn'
+ gem "rack" 
 # Deploy with Capistrano
 # gem 'capistrano'
 
