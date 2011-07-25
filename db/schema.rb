@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721032747) do
+ActiveRecord::Schema.define(:version => 20110725041105) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -21,6 +27,21 @@ ActiveRecord::Schema.define(:version => 20110721032747) do
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
 
+  create_table "orders", :force => true do |t|
+    t.integer  "customer_id"
+    t.datetime "order_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "part_number"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -30,6 +51,20 @@ ActiveRecord::Schema.define(:version => 20110721032747) do
 
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "shippings", :force => true do |t|
+    t.string   "provience"
+    t.string   "city"
+    t.string   "county"
+    t.string   "streat_address"
+    t.string   "zip"
+    t.string   "receiver"
+    t.string   "mobile"
+    t.string   "comment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

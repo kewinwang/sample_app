@@ -9,7 +9,7 @@ class CreateShippings < ActiveRecord::Migration
       t.string :receiver
       t.string :mobile
       t.string :comment
-      t.reference :user
+      t.references :user
 
       t.timestamps
     end
