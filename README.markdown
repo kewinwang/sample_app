@@ -16,7 +16,7 @@ sudo apt-gett install build-essential openssl libreadline6 libreadline6-dev curl
 sudo apt-get install mysql-server libmysqlclient15-dev
 sudo apt-get install postgresql libpq-dev
 ###### apt install  ruby 1.9  by root 
-# sudo apt-get install ruby1.9  ruby1.9-dev ruby-railties-3.2   
+###### sudo apt-get install ruby1.9  ruby1.9-dev ruby-railties-3.2   
 sudo apt-get install htop iotop sysstat lrzsz 
 
 
