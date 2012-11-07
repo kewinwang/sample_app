@@ -9,15 +9,15 @@ rvm pkg install readline --verify-downloads 1 &&  rvm pkg install iconv &&  rvm 
 ######  to remove the llvm (not support the x86 ubuntu system)
 rvm pkg install readline --verify-downloads 1 &&  rvm pkg install iconv &&  rvm pkg install curl &&  rvm pkg install openssl &&  rvm pkg install zlib &&  rvm pkg install autoconf &&  rvm pkg install ncurses --verify-downloads 1 &&  rvm pkg install pkgconfig &&  rvm pkg install gettext --verify-downloads 1 &&  rvm pkg install glib --verify-downloads 1 &&  rvm pkg install mono --verify-downloads 1 &&  rvm pkg install libxml2 --verify-downloads 1 &&  rvm pkg install libxslt --verify-downloads 1 &&  rvm pkg install libyaml--verify-downloads 1
 
-####BUT from 1.9.3 
+###### BUT from 1.9.3 
  
  rvm install 1.9.3 --with-opt-dir=$rvm_path/usr packages
 
-#############  install rvm and dependencies package ([recommanded method])
+######  install rvm and dependencies package ([recommanded method])
 sudo apt-gett install build-essential openssl libreadline6 libreadline6-dev curl ssh  git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config 
 sudo apt-get install mysql-server libmysqlclient15-dev
 sudo apt-get install postgresql libpq-dev
-##### apt install  ruby 1.9  by root 
+###### apt install  ruby 1.9  by root 
 # sudo apt-get install ruby1.9  ruby1.9-dev ruby-railties-3.2   
 sudo apt-get install htop iotop sysstat lrzsz 
 
@@ -58,6 +58,6 @@ rails -v
 ###### to install  mysql2 
 gem install mysql2
 
-# to instal pg  
-
+###### to instal pg  
+gem install pg
 
